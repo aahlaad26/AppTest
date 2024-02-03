@@ -381,7 +381,7 @@ struct ScrollViewTwo: View {
             }
         }
         VStack(alignment: .leading){
-            Text("Profiles").font(.system(size: 24, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 0.92, green: 0.3, blue: 0.26, alpha: 1))).multilineTextAlignment(.center)
+            Text("Find New Artists").font(.system(size: 24, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 0.92, green: 0.3, blue: 0.26, alpha: 1))).multilineTextAlignment(.center)
                 .padding(.bottom,20)
                 .padding(.leading,20)
             ScrollView(.horizontal, showsIndicators: false) {
