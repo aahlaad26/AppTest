@@ -18,8 +18,8 @@ struct HomeView: View {
                     VStack {
                         VStack(alignment: .leading, spacing: 5) {
                             Text("Hi")
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.black)
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundColor(Color(red: 0.92, green: 0.36, blue: 0.25))
                                 .multilineTextAlignment(.leading)
                                 .frame(width: 31.386, height: 29.64382, alignment: .topLeading)
                            
@@ -36,26 +36,24 @@ struct HomeView: View {
                                         .aspectRatio(contentMode: .fill)
                                         .frame(width:70, height: 75)
                                         .clipShape(RoundedRectangle(cornerRadius: 15))
+                                    Text("User")
                                     
                                 }
                             }
                         }.padding(.bottom,30)
-                    TabBarView(selectedTab: $selectedTab)
-                        .fixedSize(horizontal: true, vertical: true)
-                    // Content View for each tab
-                    if selectedTab == 0 {
-                        ScrollViewOne()
-                    } else if selectedTab == 1 {
-                        ScrollViewTwo()
-                        
-                    } else if selectedTab == 2{
-                        ScrollViewThree()
-                    }
                     
+                    // Content View for each tab
+                   
+                        ScrollViewOne()
+                            .padding(.bottom,20)
+                        ScrollViewTwo()
+                    
+                        
+                  
                     VStack{}.padding(.bottom,300)
                     // Tab Bar
                     
-                }.offset(y:150)
+                }.offset(y:100)
                 }
                 
                 
@@ -142,201 +140,52 @@ struct TabBarView: View {
 
 struct ScrollViewOne: View {
     var body: some View {
-        ScrollView {
-            VStack {
-                
+        ScrollView() {
+            VStack(alignment: .leading) {
                     Text("Posts")
-                    .font(.system(size: 40))
+                    .font(.system(size: 24))
                       .fontWeight(.bold)
                       .multilineTextAlignment(.leading)
                       .foregroundColor(Color(red: 0.92, green: 0.36, blue: 0.25))
-                      .padding(.bottom,100)
-                    
-                VStack{HStack(spacing: 30){
-                    Image("post-prof") // Replace "your_image_name" with the actual name of your image asset
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 32, height: 32)// Adjust the frame size as needed
-                    
-                        .clipShape(Ellipse())
-                    VStack(alignment: .leading){
-                        Text("feelmybicep")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
-                        Text("Electronic|Breakbeat")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
-                    }
-                    Text("2 hours ago")
-                        .font(.system(size: 12))
-                    
-                }
-                    Image("post-1")
-                        .foregroundColor(.clear)
-                        .frame(width: 298.41, height: 275.58)
-                        .cornerRadius(19.54)
+                      .padding([.bottom,.leading],20)
+                ScrollView(.horizontal){
+                    HStack{
+                        VStack{HStack(spacing: 30){
+                            Image("post-prof") // Replace "your_image_name" with the actual name of your image asset
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 32, height: 32)// Adjust the frame size as needed
+                            
+                                .clipShape(Ellipse())
+                            VStack(alignment: .leading){
+                                Text("feelmybicep")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.black)
+                                Text("Electronic|Breakbeat")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.black)
+                            }
+                            Text("2 hours ago")
+                                .font(.system(size: 12))
+                            
+                        }
+                            Image("post-1")
+                                .foregroundColor(.clear)
+                                .frame(width: 298.41, height: 275.58)
+                                .cornerRadius(19.54)
+                                .padding()
+                            
+                            
+                        }.cornerRadius(10)
                         .padding()
-                    
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 302.28, height: 3.74)
-                        .background(.black)
-                        .cornerRadius(4)
-                        .opacity(0.30)
-                    
-                    HStack(spacing: 10){
-                        Image(systemName:"pause")
-                            .resizable()
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
-                            .frame(width: 20,height: 20)
-                        VStack(alignment: .leading){
-                            Text("Sundial")
-                                .font(.system(size: 14))
-                            Text("Bicep")
-                                .font(.system(size: 14))
-                        }.padding(.trailing,80)
-                        Image(systemName: "bubble")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "square.and.arrow.down")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "link")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "heart")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                    }
-                }.cornerRadius(10)
-                .padding()
-                .background(Color(red: 1, green: 0.79, blue: 0.7))
-                .frame(width: 370,height: 350)
-                .padding(.bottom,100)
-                VStack{HStack(spacing: 30){
-                    Image("post-prof") // Replace "your_image_name" with the actual name of your image asset
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 32, height: 32)// Adjust the frame size as needed
-                    
-                        .clipShape(Ellipse())
-                    VStack(alignment: .leading){
-                        Text("feelmybicep")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
-                        Text("Electronic|Breakbeat")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
-                    }
-                    Text("2 hours ago")
-                        .font(.system(size: 12))
-                    
-                }
-                    Image("post-1")
-                        .foregroundColor(.clear)
-                        .frame(width: 298.41, height: 275.58)
-                        .cornerRadius(19.54)
+                        .background(Color(red: 1, green: 0.79, blue: 0.7))
+                        .frame(width: 370,height: 350)
+                        .padding([.top,.bottom],0)
                         .padding()
-                    
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 302.28, height: 3.74)
-                        .background(.black)
-                        .cornerRadius(4)
-                        .opacity(0.30)
-                    
-                    HStack(spacing: 10){
-                        Image(systemName:"pause")
-                            .resizable()
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
-                            .frame(width: 20,height: 20)
-                        VStack(alignment: .leading){
-                            Text("Sundial")
-                                .font(.system(size: 14))
-                            Text("Bicep")
-                                .font(.system(size: 14))
-                        }.padding(.trailing,80)
-                        Image(systemName: "bubble")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "square.and.arrow.down")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "link")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "heart")
-                            .resizable()
-                            .frame(width: 24,height: 24)
+                        
                     }
-                }.cornerRadius(10)
-                .padding()
-                .background(Color(red: 1, green: 0.79, blue: 0.7))
-                .frame(width: 370,height: 350)
-                .padding(.bottom,100)
-                VStack{HStack(spacing: 30){
-                    Image("post-prof") // Replace "your_image_name" with the actual name of your image asset
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 32, height: 32)// Adjust the frame size as needed
-                    
-                        .clipShape(Ellipse())
-                    VStack(alignment: .leading){
-                        Text("feelmybicep")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
-                        Text("Electronic|Breakbeat")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
-                    }
-                    Text("2 hours ago")
-                        .font(.system(size: 12))
-                    
                 }
-                    Image("post-1")
-                        .foregroundColor(.clear)
-                        .frame(width: 298.41, height: 275.58)
-                        .cornerRadius(19.54)
-                        .padding()
-                    
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 302.28, height: 3.74)
-                        .background(.black)
-                        .cornerRadius(4)
-                        .opacity(0.30)
-                    
-                    HStack(spacing: 10){
-                        Image(systemName:"pause")
-                            .resizable()
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
-                            .frame(width: 20,height: 20)
-                        VStack(alignment: .leading){
-                            Text("Sundial")
-                                .font(.system(size: 14))
-                            Text("Bicep")
-                                .font(.system(size: 14))
-                        }.padding(.trailing,80)
-                        Image(systemName: "bubble")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "square.and.arrow.down")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "link")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                        Image(systemName: "heart")
-                            .resizable()
-                            .frame(width: 24,height: 24)
-                    }
-                }.cornerRadius(10)
-                .padding()
-                .background(Color(red: 1, green: 0.79, blue: 0.7))
-                .frame(width: 370,height: 350)
+                
                 
                 
                 
@@ -348,54 +197,41 @@ struct ScrollViewOne: View {
 
 struct ScrollViewTwo: View {
     var body: some View {
-        ScrollView {
+        ScrollView() {
             
-            VStack {
-                Text("Discover")
-                .font(.system(size: 40))
+            VStack(alignment: .leading) {
+                Text("Opus")
+                .font(.system(size: 24))
                   .fontWeight(.bold)
                   .multilineTextAlignment(.leading)
                   .foregroundColor(Color(red: 0.92, green: 0.36, blue: 0.25))
-                  .padding(.bottom,80)
-                  .offset(y:5)
+                  .padding(.leading,20)
+                  .padding(.bottom,20)
                 ScrollView(.horizontal){
                     VStack {
                         
                         VStack(alignment: .leading){
-                            Text("Opus")
-                            .font(.system(size: 30))
-                              .fontWeight(.bold)
-                              .multilineTextAlignment(.leading)
-                              .foregroundColor(Color(red: 0.92, green: 0.36, blue: 0.25))
-                              .padding(.leading,15)
-                              .padding(.bottom,30)
+                            
                             
                             HStack{
                                 ZStack{
                                     
                                     Image("Portfo")
                                         .resizable()
-                                        .frame(width: 161.00, height: 253.00)
+                                        .frame(width: 161.00, height: 161)
                                         .aspectRatio(contentMode: .fit)
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    RoundedRectangle(cornerRadius: 10)
-                                      .fill(LinearGradient(gradient: Gradient(stops: [.init(color: Color.white.opacity(0), location: 0.00), .init(color: Color.white.opacity(0.60), location: 0.30), .init(color: Color.white, location: 0.62)]), startPoint: .top, endPoint: .bottom))
-                                      .frame(width: 161.00, height: 38.00)
-                                      .offset(y:107)
-                                    Text(":10")
-                                        .font(.system(size: 14))
-                                      .multilineTextAlignment(.center)
-                                      .foregroundColor(Color.black)
-                                      .frame(minWidth: 42.87, minHeight: 16.96, alignment: .top)
-                                      .offset(x:60,y:-105)
                                     HStack {
                                         Text("Neque porro quisquam\nest qui dolorem ipsu")
                                           .font(Font.custom("Catamaran-Bold", size: 12))
                                           .multilineTextAlignment(.center)
-                                          .foregroundColor(Color.black)
+                                          .foregroundColor(Color.white)
                                           .frame(minWidth: 40, minHeight: 40.00, alignment: .top)
-                                        Image(systemName: "ellipsis").rotationEffect(.degrees(-90))
-                                            .offset(y:-4)
+                                          .offset(x:10)
+                                          .padding()
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.white).rotationEffect(.degrees(-90))
+                                            .offset(x:-4,y:-4)
                                         
                                     }.offset(y:107)
                                     Image(systemName: "play.fill")
@@ -409,27 +245,20 @@ struct ScrollViewTwo: View {
                                     
                                     Image("Portfo")
                                         .resizable()
-                                        .frame(width: 161.00, height: 253.00)
+                                        .frame(width: 161.00, height: 161)
                                         .aspectRatio(contentMode: .fit)
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    RoundedRectangle(cornerRadius: 10)
-                                      .fill(LinearGradient(gradient: Gradient(stops: [.init(color: Color.white.opacity(0), location: 0.00), .init(color: Color.white.opacity(0.60), location: 0.30), .init(color: Color.white, location: 0.62)]), startPoint: .top, endPoint: .bottom))
-                                      .frame(width: 161.00, height: 38.00)
-                                      .offset(y:107)
-                                    Text(":10")
-                                        .font(.system(size: 14))
-                                      .multilineTextAlignment(.center)
-                                      .foregroundColor(Color.black)
-                                      .frame(minWidth: 42.87, minHeight: 16.96, alignment: .top)
-                                      .offset(x:60,y:-105)
                                     HStack {
                                         Text("Neque porro quisquam\nest qui dolorem ipsu")
                                           .font(Font.custom("Catamaran-Bold", size: 12))
                                           .multilineTextAlignment(.center)
-                                          .foregroundColor(Color.black)
+                                          .foregroundColor(Color.white)
                                           .frame(minWidth: 40, minHeight: 40.00, alignment: .top)
-                                        Image(systemName: "ellipsis").rotationEffect(.degrees(-90))
-                                            .offset(y:-4)
+                                          .offset(x:10)
+                                          .padding()
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.white).rotationEffect(.degrees(-90))
+                                            .offset(x:-4,y:-4)
                                         
                                     }.offset(y:107)
                                     Image(systemName: "play.fill")
@@ -443,27 +272,20 @@ struct ScrollViewTwo: View {
                                     
                                     Image("Portfo")
                                         .resizable()
-                                        .frame(width: 161.00, height: 253.00)
+                                        .frame(width: 161.00, height: 161)
                                         .aspectRatio(contentMode: .fit)
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    RoundedRectangle(cornerRadius: 10)
-                                      .fill(LinearGradient(gradient: Gradient(stops: [.init(color: Color.white.opacity(0), location: 0.00), .init(color: Color.white.opacity(0.60), location: 0.30), .init(color: Color.white, location: 0.62)]), startPoint: .top, endPoint: .bottom))
-                                      .frame(width: 161.00, height: 38.00)
-                                      .offset(y:107)
-                                    Text(":10")
-                                        .font(.system(size: 14))
-                                      .multilineTextAlignment(.center)
-                                      .foregroundColor(Color.black)
-                                      .frame(minWidth: 42.87, minHeight: 16.96, alignment: .top)
-                                      .offset(x:60,y:-105)
                                     HStack {
                                         Text("Neque porro quisquam\nest qui dolorem ipsu")
                                           .font(Font.custom("Catamaran-Bold", size: 12))
                                           .multilineTextAlignment(.center)
-                                          .foregroundColor(Color.black)
+                                          .foregroundColor(Color.white)
                                           .frame(minWidth: 40, minHeight: 40.00, alignment: .top)
-                                        Image(systemName: "ellipsis").rotationEffect(.degrees(-90))
-                                            .offset(y:-4)
+                                          .offset(x:10)
+                                          .padding()
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.white).rotationEffect(.degrees(-90))
+                                            .offset(x:-4,y:-4)
                                         
                                     }.offset(y:107)
                                     Image(systemName: "play.fill")
@@ -472,28 +294,30 @@ struct ScrollViewTwo: View {
                                         .frame(width: 24, height: 24)
 
 
-                                }.padding([.leading])
+                                }.padding(.leading)
                                 
                                 
                                 
-                            }.padding(.bottom,40)
+                            }.padding([.bottom],40)
+                                .padding(.top,20)
                         }
                     }
                 }
-                .frame(width: 393, height: 390)
                 .background(Color(red: 0.369, green: 0.16, blue: 0.12))
                 
                 
-            .padding(.bottom,100)
+            .padding(.bottom,40)
             }
         }
-        ScrollView(.vertical, showsIndicators: false){
-            VStack(alignment: .leading){
+        VStack(alignment: .leading){
+            Text("Profiles").font(.system(size: 24, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 0.92, green: 0.3, blue: 0.26, alpha: 1))).multilineTextAlignment(.center)
+                .padding(.bottom,20)
+                .padding(.leading,20)
+            ScrollView(.horizontal, showsIndicators: false) {
                 //Discover
-                Text("Profiles").font(.system(size: 30, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 0.92, green: 0.3, blue: 0.26, alpha: 1))).multilineTextAlignment(.center)
-                    .padding(.bottom,20)
                 
-                VStack {
+                
+                HStack {
                     VStack(alignment: .center){
                         HStack(spacing:40){
                             Image("Portfo")
@@ -544,6 +368,7 @@ struct ScrollViewTwo: View {
                     .shadow( radius: 1)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.bottom,30)
+                .padding()
                     VStack(alignment: .center){
                         HStack(spacing:40){
                             Image("Portfo")
@@ -594,6 +419,7 @@ struct ScrollViewTwo: View {
                     .shadow( radius: 1)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.bottom,30)
+                .padding()
                     VStack(alignment: .center){
                         HStack(spacing:40){
                             Image("Portfo")
@@ -643,6 +469,9 @@ struct ScrollViewTwo: View {
                     .background(Color(#colorLiteral(red: 1, green: 0.7944080829620361, blue: 0.696666955947876, alpha: 1)))
                     .shadow( radius: 1)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.bottom,30)
+                .padding()
+                   
                 }
                  
                 
